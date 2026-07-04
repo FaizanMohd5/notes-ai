@@ -1,7 +1,9 @@
 {
-  "name": "backend",
+  "name": "@notes-ai/backend",
   "version": "1.0.0",
+  "private":true,
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch src/index.ts",
