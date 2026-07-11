@@ -44,7 +44,7 @@ export class DefaultNotesService implements NotesService {
   }
 
   public async updateNote(id: string, input: UpdateNoteInput): Promise<Note> {
-    await this.getNoteById(id);
+    
     const patch = this.buildContentPatch(input);
 
     const updated = await this.notesRepository.update(id, patch);
