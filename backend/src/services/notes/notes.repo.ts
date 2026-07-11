@@ -1,5 +1,4 @@
-import type { Note } from '../types/note.types.js';
-import type { NotesRepository } from './notes.repository.interface.js';
+import type { Note, NotesRepository } from './notes.types.js';
 
 function cloneNote(note: Note): Note {
   return {
@@ -32,10 +31,7 @@ export class InMemoryNotesRepository implements NotesRepository {
     return [...this.notes.values()].map(cloneNote).sort(sortByUpdatedAtDesc);
   }
 
-  public async update(
-    id: string,
-    patch: Partial<Omit<Note, 'id' | 'createdAt'>>
-  ): Promise<Note | null> {
+  public async update(id: string, patch: Partial<Omit<Note, 'id' | 'createdAt'>>): Promise<Note | null> {
     const current = this.notes.get(id);
     if (!current) {
       return null;

@@ -1,13 +1,6 @@
 import { randomUUID } from 'node:crypto';
-import { NotFoundError, ValidationError } from '../../../common/errors/app-error.js';
-import type {
-  CreateNoteInput,
-  Note,
-  SearchNotesInput,
-  UpdateNoteInput,
-} from '../types/note.types.js';
-import type { NotesRepository } from '../repository/notes.repository.interface.js';
-import type { NotesService } from './notes.service.interface.js';
+import { NotFoundError, ValidationError } from '../../shared/errors/custom-error.js';
+import type { Note, NotesRepository, NotesService, SearchNotesInput, CreateNoteInput, UpdateNoteInput } from './notes.types.js';
 
 function normalizeSearchValue(value: string | undefined): string | undefined {
   const trimmed = value?.trim();
